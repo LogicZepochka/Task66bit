@@ -27,8 +27,8 @@ namespace TastTask66bit
         {
             services.AddControllersWithViews();
             services.AddDbContext<DataBase>(options =>
-               options.UseMySql(Configuration.GetConnectionString("LocalhostConnection"),
-               ServerVersion.AutoDetect(Configuration.GetConnectionString("LocalhostConnection"))));
+               options.UseMySql(Configuration.GetConnectionString("MainConnection"),
+               ServerVersion.AutoDetect(Configuration.GetConnectionString("MainConnection"))));
             services.AddSignalR();
         }
 
