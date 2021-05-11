@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h2 class="display-4  mb-5">
+        Тестовое задание "Каталог футболистов 3.0"
+    </h2>
+
+    <form>
+        <div class="row">
+
+            <div class="col">
+                <p>
+                    Предоставляет пользователю функционал добавления футболистов
+                </p>
+
+            </div>
+            <div class="col">
+                <p>
+                    Отображает актуальный список футболистов с возможностью изменения
+                </p>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-info" asp-controller="Home" asp-action="NewFootballPlayer">Добавить футболиста</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-info" asp-controller="Home" asp-action="FootballPlayerList">Список футболистов</button>
+            </div>
+            
+        </div>
+    </form>
+</div>
+

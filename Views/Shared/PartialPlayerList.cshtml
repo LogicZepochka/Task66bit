@@ -1,0 +1,13 @@
+﻿@model TastTask66bit.Models.Player[]
+
+    @foreach (var player in Model)
+    {
+        <tr data-plid=@player.ID.ToString()>
+            <td>@String.Format("{0} {1}", player.FirstName, player.LastName)</td>
+            <td>@((player.IsMale) ? "Мужчина" : "Женщина")</td>
+            <td>@player.BirthDate.ToString("yyyy-MM-dd")</td>
+            <td>@player.Team.Name</td>
+            <td>@player.Country.Name</td>
+            <td><button id="edit" class="btn btn-info" data-toggle="modal" data-target="#editModal" data-plid=@player.ID.ToString()>Изменить</button></td>
+        </tr>
+    }

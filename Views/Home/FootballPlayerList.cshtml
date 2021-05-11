@@ -1,0 +1,130 @@
+﻿<div class="text-center">
+    <h3>Таблица футболистов</h3>
+    <p>Данная таблица включает в себя список всех зарегистрированных футболистов</p>
+</div>
+
+<div id="controls" class="row mb-3">
+    <button class="btn btn-dark ml-3 pr-5 pl-5 col" id="Back">Назад</button>
+    <button class="btn btn-dark mr-3 ml-3 pr-5 pl-5 col" id="ExpandSearch">Поиск</button>
+    <button class="btn btn-dark mr-3 pr-5 pl-5 col" id="Next">Далее</button>
+</div>
+<div id="search" style="display:none;">
+
+    <form class="form" id="searchForm">
+        <div class="row">
+            <div class="form-group col-9">
+                <input type="text" class="form-control mb-2" id="searchInput" name="searchInput" placeholder="Имя, Фамилия или команда" required>
+                <div class="invalid-feedback">
+                    Обязательное поле
+                </div>
+            </div>
+            <button type="button" class="mb-4 close" id="resetSearch" aria-label="Reset" style="display: none;">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="col">
+                <button type="submit" class="btn btn-success mb-2 pr-5 pl-5">Поиск</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+<table class="table" id="plTable">
+
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Имя Фамилия</th>
+            <th scope="col">Пол</th>
+            <th scope="col">Дата рождения</th>
+            <th scope="col">Команда</th>
+            <th scope="col">Страна</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+
+
+    <tbody id="playersData">
+    </tbody>
+</table>
+<div id="loading" class="text-center" style="diplay: none;">
+    <img src="~/img/loading.gif" />
+</div>
+
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Изменение сведеней об игроке</h5>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <form id="mainForm">
+                    <input type="hidden" id="changeId">
+                    <div class="row">
+                        <div class="col form-group">
+                            <label>Имя</label>
+                            <input type="text" class="form-control" id="firstNameInput" name="firstName" placeholder="Имя" required>
+                            <div class="invalid-feedback">
+                                Обязательное поле
+                            </div>
+                        </div>
+                        <div class="col form-group">
+                            <label>Фамилия</label>
+                            <input type="text" class="form-control" id="lastNameInput" name="lastName" placeholder="Фамилия" required>
+                            <div class="invalid-feedback">
+                                Обязательное поле
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="sexLabel">Пол</label>
+                        <select class="form-control" name="sex" id="sexInput">
+                            <option value="0">Мужчина</option>
+                            <option value="1">Женщина</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDate">Дата рождения:</label>
+                        <input type="date" id="birthDateInput" name="birthDate" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Обязательное поле
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="countryInput">Страна</label>
+                        <select class="form-control" name="country" id="countryInput">
+                            <option>Россия</option>
+                            <option>США</option>
+                            <option>Италия</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDate">Команда:</label>
+
+                        <small class="text-muted" id="teamMessage">Команда не найдена. Она будет добавлена автоматически</small>
+                        <input type="text" id="teamInput" class="form-control" name="team" placeholder="Команда" required>
+                        <div class="invalid-feedback">
+                            Обязательное поле
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-info" data-dismiss="modal">Закрыть</button>
+                <button class="btn btn-success" id="submitChanges">Изменить</button>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+@Html.AntiForgeryToken()
+
+@section Styles {
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+}
+
+@section Scripts {
+    <script src="~/jqueryui/jquery-ui.js"></script>
+    <script src="~/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <script src="~/js/ListFPPage.js"></script>
+}
