@@ -27,7 +27,8 @@ namespace TastTask66bit.Controllers
 
         public IActionResult NewFootballPlayer()
         {
-                return View(db.Countries.ToArray()); 
+            
+            return View(db.Countries.ToArray()); 
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -38,7 +39,7 @@ namespace TastTask66bit.Controllers
 
         public IActionResult FootballPlayerList()
         {
-            return View();
+            return View(db.Countries.ToArray());
         }
     }
 }

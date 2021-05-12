@@ -1,30 +1,6 @@
 ﻿$(document).ready(function () {
     $('#teamMessage').hide();
 
-    const connection = new signalR.HubConnectionBuilder()
-        .withUrl("/FPlayersHub")
-        .configureLogging(signalR.LogLevel.Information)
-        .build();
-
-    async function start() {
-        try {
-            await connection.start().then(function () {
-                connection.invoke("AddUserToEditGroup");
-            });
-            console.log("SignalR Connected.");
-        } catch (err) {
-            console.log(err);
-            setTimeout(start, 5000);
-        };
-    };
-    connection.onclose(start);
-
-    start();
-
-    function AddNewUser() {
-
-    };
-
     $("#teamInput").autocomplete({
         source: function (request, response) {
             console.log(request);
@@ -42,7 +18,7 @@
         },
         response: function (event, ui) {
             var IsRegisteredString = false;
-            for (let i = 0; i < ui.content.length; i++) { // выведет 0, затем 1, затем 2
+            for (let i = 0; i < ui.content.length; i++) {
                 if ($("#teamInput").val() == ui.content[i]["label"]) {
                     IsRegisteredString = true;
                 }
@@ -64,11 +40,13 @@
         if ($("#mainForm")[0].checkValidity() === false) {
             event.stopPropagation();
         } else {
+            var token = $('[name=__RequestVerificationToken]').val();
             $.ajax({
                 url: "/FootballPlayers/RegisterNewPlayer",
                 type: "POST",
                 dataType: "json",
                 data: {
+                    __RequestVerificationToken: token,
                     firstName: $("#firstNameInput").val(),
                     lastName: $("#lastNameInput").val(),
                     sex: $("#sexInput").val(),
@@ -82,13 +60,7 @@
                         $("#resultMessage").removeClass();
                         $("#resultMessage").addClass("text-success");
                         $("#resultMessage").text("Футболист успешно добавлен!");
-                        console.log([data[1],
-                        $("#firstNameInput").val(),
-                        $("#lastNameInput").val(),
-                        $("#sexInput").val(),
-                        $("#birthDateInput").val(),
-                        $("#countryInput").val(),
-                            $("#teamInput").val()]);
+                        
                         var d = $("#birthDateInput").val().split("-");
                         var parsed = d[2] + "." + d[1] + "." + d[0];
                         

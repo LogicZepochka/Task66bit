@@ -346,7 +346,6 @@ C:\Users\EA\source\repos\TastTask66bit\obj\Debug\netcoreapp3.1\TastTask66bit.Tag
 C:\Users\EA\source\repos\TastTask66bit\obj\Debug\netcoreapp3.1\TastTask66bit.TagHelpers.output.cache
 C:\Users\EA\source\repos\TastTask66bit\obj\Debug\netcoreapp3.1\TastTask66bit.RazorCoreGenerate.cache
 C:\Users\EA\source\repos\TastTask66bit\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\EA\source\repos\TastTask66bit\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\EA\source\repos\TastTask66bit\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\EA\source\repos\TastTask66bit\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\EA\source\repos\TastTask66bit\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -405,4 +404,4 @@ C:\Users\EA\source\repos\TastTask66bit\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft
 C:\Users\EA\source\repos\TastTask66bit\bin\Debug\netcoreapp3.1\MySqlConnector.dll
 C:\Users\EA\source\repos\TastTask66bit\bin\Debug\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\EA\source\repos\TastTask66bit\obj\Debug\netcoreapp3.1\Razor\Views\Home\FootballPlayerList.cshtml.g.cs
-C:\Users\EA\source\repos\TastTask66bit\obj\Debug\netcoreapp3.1\Razor\Views\Shared\PartialPlayerList.cshtml.g.cs
+C:\Users\EA\source\repos\TastTask66bit\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PartialPlayerForm.cshtml.g.cs
